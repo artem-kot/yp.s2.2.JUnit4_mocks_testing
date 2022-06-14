@@ -1,10 +1,17 @@
 Обязательное задание
 -DONE Привяжи GitHub к тренажёру. Как только ты это сделаешь, в списке репозиториев автоматически появится qa_java. Там будет заготовка проекта, в которой нужно дописать код. Подробнее — в инструкции.
 -DONE Собери Maven-проект: подключи Jacoco, Mockito и JUnit 4. Обрати внимание: нужно использовать Java 11.
--Изолируй класс Lion от класса Feline.
+-DONE Изолируй класс Lion от класса Feline.
+@To isolate lion, make constructor which will send Feline object to Lion.
+@Note that you shouldn't transfer one dependency using one constructor and another dependency using different constructor.
+@Lion object will need both dependencies (Feline object and hasMane field) to work fine.
 -Напиши моки с помощью Mockito. Какие именно понадобятся — определи самостоятельно.
+@Don't mock primitives and Strings.
+@There is a difficult place in the project related to usage of both mocks and parameters. You cannot combine several
+@annotations under @RunWith(...). You can use parameterized runner and initialize all mocks explicitly using
 -Напиши тесты на классы Feline, Cat и Lion.
 -Подумай, где можно применить параметризацию. Реализуй параметризованные тесты.
+@Make parameterized tests for class Lion with different sex as a parameter. Parameterized tests should be a separate class.
 -Оцени покрытие с помощью Jacoco: оно должно быть 100%.
 
 Дополнительное задание
