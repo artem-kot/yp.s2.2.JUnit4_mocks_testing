@@ -10,37 +10,10 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(Parameterized.class)
 public class AnimalTest {
-    private final String animalKind;
-    private final ArrayList expectedFoodList;
-
-    public AnimalTest(String animalKind, ArrayList expectedFoodList){
-        this.animalKind = animalKind;
-        this.expectedFoodList = expectedFoodList;
-    }
-    @Parameterized.Parameters
-    public static Object[] getAnimalKind() {
-        ArrayList<String> herbivoresFoodList = new ArrayList<>(Arrays.asList("Трава", "Различные растения"));
-        ArrayList<String> carnivoresFoodList = new ArrayList<>(Arrays.asList("Животные", "Птицы", "Рыба"));
-        return new Object[][] {
-            {"Травоядное", herbivoresFoodList},
-            {"Хищник", carnivoresFoodList},
-            {"Всеядное", new ArrayList<>()}
-        };
-    }
-
-    @Test
-    public void getFood() throws Exception {
-        Animal animal = new Animal();
-        try {
-            assertEquals(animal.getFood(animalKind), expectedFoodList);
-        } catch (Exception exception) {
-            assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
-        }
-    }
-
     @Test
     public void getFamily() {
+        Animal animal = new Animal();
+        assertEquals("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи",animal.getFamily());
     }
 }
