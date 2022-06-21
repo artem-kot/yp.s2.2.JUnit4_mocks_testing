@@ -24,6 +24,9 @@ public class LionTest {
         };
     }
 
+//    REFACTOR THIS METHOD USING A PROPER EXCEPTION HANDLING AS IN AnimalTest CLASS
+//    ALSO MOVE OUT PARAMETERIZED TEST AS A SEPARATE CLASS
+//    CHANGE NAMES FOR PARAMETERIZED CLASSES TO RESEMBLE THE ACTUAL METHODS THEY ARE TESTING
     @Test
     public void lionSexTest() throws Exception {
         try {

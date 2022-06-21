@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 @RunWith(Parameterized.class)
 public class AnimalParameterizedTest {
@@ -25,18 +26,13 @@ public class AnimalParameterizedTest {
         ArrayList<String> carnivoresFoodList = new ArrayList<>(Arrays.asList("Животные", "Птицы", "Рыба"));
         return new Object[][] {
                 {"Травоядное", herbivoresFoodList},
-                {"Хищник", carnivoresFoodList},
-                {"Всеядное", new ArrayList<>()}
+                {"Хищник", carnivoresFoodList}
         };
     }
 
     @Test
     public void getFood() throws Exception {
         Animal animal = new Animal();
-        try {
-            assertEquals(animal.getFood(animalKind), expectedFoodList);
-        } catch (Exception exception) {
-            assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
-        }
+        assertEquals(animal.getFood(animalKind), expectedFoodList);
     }
 }
