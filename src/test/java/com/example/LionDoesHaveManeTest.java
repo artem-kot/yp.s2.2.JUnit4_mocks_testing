@@ -27,7 +27,7 @@ public class LionDoesHaveManeTest extends BaseTestData{
     }
 
     @Test
-    public void lionSexTest() throws Exception {
+    public void lionDoesHaveManeTest() throws Exception {
         Lion lion = new Lion(sex, feline);
         assertEquals(expectedHasManeValue, lion.doesHaveMane());
     }

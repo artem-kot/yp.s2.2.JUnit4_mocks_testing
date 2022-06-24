@@ -18,13 +18,13 @@ public class LionTest extends BaseTestData{
     Feline feline;
 
     @Test
-    public void lionSexTest() {
+    public void lionUnknownSexTest() {
         Exception e = assertThrows("", Exception.class, () -> new Lion(nonBinarySex, feline));
         assertEquals(expectedUnknownSexException, e.getMessage());
     }
 
     @Test
-    public void getKittens() throws Exception {
+    public void lionGetKittensTest() throws Exception {
         Lion lion = new Lion(maleSex, feline);
         Mockito.when(feline.getKittens()).thenReturn(-7);
         assertEquals(-7, lion.getKittens());
@@ -32,7 +32,7 @@ public class LionTest extends BaseTestData{
 
 
     @Test
-    public void getFood() throws Exception {
+    public void lionGetFoodTest() throws Exception {
         Lion lion = new Lion(femaleSex, feline);
         Mockito.when(feline.getFood(animalTypeCarnivore)).thenReturn(carnivoresFoodList);
         assertEquals(carnivoresFoodList, lion.getFood());
