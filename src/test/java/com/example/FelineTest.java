@@ -6,33 +6,38 @@ import static org.junit.Assert.*;
 
 public class FelineTest extends BaseTestData {
 
+    Feline feline = new Feline();
+
     @Test
-    public void getFood() throws Exception {
-        Feline feline = new Feline();
+    public void getFoodTest() throws Exception {
         assertEquals(carnivoresFoodList, feline.getFood(animalTypeCarnivore));
         assertNotEquals(carnivoresFoodList, feline.getFood(animalTypeHerbivore));
     }
 
     @Test
-    public void getFamily() {
-        Feline feline = new Feline();
+    public void getFamilyTest() {
         assertEquals(expectedFelineFamily, feline.getFamily());
     }
 
     @Test
-    public void eatMeat() {
-
+    public void eatMeatTest() throws Exception {
+        assertEquals(carnivoresFoodList, feline.eatMeat());
     }
 
     @Test
-    public void testGetFamily() {
+    public void testGetFamilyTest() {
+        assertEquals(expectedFelineFamily, feline.getFamily());
     }
 
     @Test
-    public void getKittens() {
+    public void getKittensTest() {
+        assertEquals(1, feline.getKittens());
     }
 
     @Test
-    public void testGetKittens() {
+    public void getSeveralKittensTest() {
+        assertEquals(0, feline.getKittens(0));
+        assertEquals(-7, feline.getKittens(-7));
+        assertEquals(42, feline.getKittens(42));
     }
 }

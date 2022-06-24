@@ -3,12 +3,8 @@ package com.example;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
 @RunWith(Parameterized.class)
 public class AnimalGetFoodTest extends BaseTestData {
