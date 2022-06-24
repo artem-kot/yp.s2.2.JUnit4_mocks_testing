@@ -34,7 +34,7 @@ public class LionTest extends BaseTestData{
     @Test
     public void getFood() throws Exception {
         Lion lion = new Lion(femaleSex, feline);
-        Mockito.when(feline.getFood(animalTypeOmnivoreIsUnknown)).thenReturn(carnivoresFoodList);
+        Mockito.when(feline.getFood(animalTypeCarnivore)).thenReturn(carnivoresFoodList);
         assertEquals(carnivoresFoodList, lion.getFood());
     }
 }

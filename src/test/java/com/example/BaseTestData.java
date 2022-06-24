@@ -18,7 +18,7 @@ public abstract class BaseTestData {
     static String expectedCatSound = "Мяу";
 
 //    Feline
-    static String expectedFamily = "Кошачьи";
+    static String expectedFelineFamily = "Кошачьи";
 
 //    Lion
     static String maleSex = "Самец";
