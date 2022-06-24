@@ -3,49 +3,38 @@ package com.example;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoJUnitRunner;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
-@RunWith(Parameterized.class)
-public class LionTest {
+@RunWith(MockitoJUnitRunner.class)
+public class LionTest extends BaseTestData{
 
-    private String sex;
-    private boolean expectedHasManeValue;
-    public LionTest(String sex, boolean expectedHasManeValue) {
-        this.sex = sex;
-        this.expectedHasManeValue = expectedHasManeValue;
-    }
+    @Mock
+    Feline feline;
 
-    @Parameterized.Parameters
-    public static Object[] getSexValue() {
-        return new Object[][] {
-                {"Самец", true},
-                {"Самка", false},
-                {"Небинарный лев", false}
-        };
-    }
-
-//    REFACTOR THIS METHOD USING A PROPER EXCEPTION HANDLING AS IN AnimalTest CLASS
-//    ALSO MOVE OUT PARAMETERIZED TEST AS A SEPARATE CLASS
-//    CHANGE NAMES FOR PARAMETERIZED CLASSES TO RESEMBLE THE ACTUAL METHODS THEY ARE TESTING
     @Test
-    public void lionSexTest() throws Exception {
-        try {
-            Lion lion = new Lion(sex, new Feline());
-            assertEquals(expectedHasManeValue, lion.hasMane);
-        } catch (Exception exception) {
-            assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
-        }
+    public void lionSexTest() {
+        Exception e = assertThrows("", Exception.class, () -> new Lion(nonBinarySex, feline));
+        assertEquals(expectedUnknownSexException, e.getMessage());
     }
 
     @Test
-    public void getKittens() {
+    public void getKittens() throws Exception {
+        Lion lion = new Lion(maleSex, feline);
+        Mockito.when(feline.getKittens()).thenReturn(-7);
+        assertEquals(-7, lion.getKittens());
     }
 
-    @Test
-    public void doesHaveMane() {
-    }
 
     @Test
-    public void getFood() {
+    public void getFood() throws Exception {
+        Lion lion = new Lion(femaleSex, feline);
+        Mockito.when(feline.getFood(animalTypeOmnivoreIsUnknown)).thenReturn(carnivoresFoodList);
+        assertEquals(carnivoresFoodList, lion.getFood());
     }
 }

@@ -14,9 +14,8 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CatTest {
+public class CatTest extends BaseTestData {
     private Cat cat;
-    List<String> expectedResultForEatMeatMethod = Arrays.asList("Meat", "Poultry", "Fish");
 
     @Mock
     private Feline feline;
@@ -28,12 +27,12 @@ public class CatTest {
 
     @Test
     public void getSound() {
-        assertEquals("Мяу", cat.getSound());
+        assertEquals(expectedCatSound, cat.getSound());
     }
 
     @Test
     public void getFood() throws Exception {
-        Mockito.when(feline.eatMeat()).thenReturn(expectedResultForEatMeatMethod);
-        assertEquals(expectedResultForEatMeatMethod, cat.getFood());
+        Mockito.when(feline.eatMeat()).thenReturn(carnivoresFoodList);
+        assertEquals(carnivoresFoodList, cat.getFood());
     }
 }
