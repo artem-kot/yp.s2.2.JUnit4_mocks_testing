@@ -24,7 +24,7 @@ public class AnimalGetFoodTest extends BaseTestData {
     }
 
     @Test
-    public void getFood() throws Exception {
+    public void animalGetFoodTest() throws Exception {
         Animal animal = new Animal();
         assertEquals(animal.getFood(animalKind), expectedFoodList);
     }

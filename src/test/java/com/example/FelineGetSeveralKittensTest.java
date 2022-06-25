@@ -27,7 +27,7 @@ public class FelineGetSeveralKittensTest extends BaseTestData {
     }
 
     @Test
-    public void getSeveralKittensTest() {
+    public void felineGetSeveralKittensTest() {
         Feline feline = new Feline();
         assertEquals(expectedNumberOfKittens, feline.getKittens(numberOfKittensInput));
     }

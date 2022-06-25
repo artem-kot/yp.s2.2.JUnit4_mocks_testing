@@ -7,10 +7,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -26,12 +22,12 @@ public class CatTest extends BaseTestData {
     }
 
     @Test
-    public void getSound() {
+    public void catGetSoundTest() {
         assertEquals(expectedCatSound, cat.getSound());
     }
 
     @Test
-    public void getFood() throws Exception {
+    public void catGetFoodTest() throws Exception {
         Mockito.when(feline.eatMeat()).thenReturn(carnivoresFoodList);
         assertEquals(carnivoresFoodList, cat.getFood());
     }
