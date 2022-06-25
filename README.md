@@ -1,7 +1,7 @@
 # qa_java: финальный проект 2-го спринта курса Яндекс.Практикум 
 
 Набор автоматизированных сценариев для тестирования программы по исследованию семейства кошачьих.
-[Project Miro Board](https://miro.com/app/board/uXjVO5ZkPIY=/)
+[qa_java: Miro Board](https://miro.com/app/board/uXjVO5ZkPIY=/)
 
 ## Содержимое проекта
 
